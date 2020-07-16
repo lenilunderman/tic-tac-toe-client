@@ -1,17 +1,100 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title> Tic Tac Toe Game - Lenny Lunderman </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
-    </body>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <div class="container py-4">
+    <!--start ! create account for the user -->
+    <div class="create-account unauthorized">
+      <h4>Create an account:</h4>
+      <form id="create-account">
+        <div class="form-group">
+          <label for="email">Email address: </label>
+          <input type="email" id="email" class="form-control" placeholder="email" name="credentials[email]">
+        </div>
+        <div class="form-group">
+          <label for="password">Password: </label>
+          <input type="text" id="password" class="form-control" placeholder="password" name="credentials[password]">
+        </div>
+        <div class="form-group">
+          <label for="password_confirmation"> Confirm Password: </label>
+          <input type="text" id="password_confirmation" class="form-control" placeholder="confirm password"
+            name="credentials[password_confirmation]">
+        </div>
+        <button type="submit" class="btn btn-info"> Create Account </button>
+      </form>
+      <div class="create-account-message"> </div>
+    </div>
+    <!-- end of create account for the user-->
+
+    <!-- start ! logout section the user will be able to sign out-->
+    <div class="sign-out unauthorized">
+      <form id="sign-out">
+        <button type="submit" class="btn btn-secondary btn-lg btn-block text-light mb-5"> Sign out! </button>
+      </form>
+      <div class="sign-out-message"> </div>
+    </div>
+    <!-- end the logout section and the user will be able to sign out-->
+
+    <!-- start !sign in user account -->
+    <div class="sign-in unauthorized my-5">
+      <form id="sign-in">
+        <h4>Login to your account:</h4>
+        <div class="form-group">
+          <label for="email">Email address: </label>
+          <input type="email" id="email" class="form-control" placeholder="email" name="credentials[email]">
+        </div>
+        <div class="form-group">
+          <label for="password">Password: </label>
+          <input type="text" id="password" class="form-control" placeholder="password" name="credentials[password]">
+        </div>
+        <button type="submit" class="btn btn-info"> Login </button>
+      </form>
+      <div class="sign-in-message"> </div>
+    </div>
+    <!-- end of sign in user account-->
+
+    <!-- start ! change password -->
+    <div class="change-password authorized my-5">
+      <form id="change-password">
+        <h4>Change Password</h4>
+        <div class="form-group">
+          <label for="password"> Old Password: </label>
+          <input type="text" id="password" class="form-control" placeholder="Please enter your old password"
+            name="passwords[old]">
+        </div>
+        <div class="form-group">
+          <label for="password"> New Password: </label>
+          <input type="text" id="password" class="form-control" placeholder="Please enter your new password"
+            name="passwords[new]">
+        </div>
+        <button type="submit" class="btn btn-info"> Change Password </button>
+      </form>
+      <div class="change-password-message"> </div>
+    </div>
+    <!-- end change password -->
+  </div>
+
+  <!-- Game board container -->
+  <div class="container">
+    ...the game goes here...
+  </div>
+  <!-- end game board container-->
+
+
+
+
+</body>
+
 </html>

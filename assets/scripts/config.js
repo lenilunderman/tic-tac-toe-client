@@ -2,14 +2,16 @@
 
 let apiUrl
 const apiUrls = {
-  production: '<replace-with-heroku-url>',
+  production: 'https://tic-tac-toe-api-production.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
 if (window.location.hostname === 'localhost') {
-  apiUrl = apiUrls.development
-} else {
   apiUrl = apiUrls.production
+  //apiUrl = apiUrls.development
+} else {
+  //apiUrl = apiUrls.production
+  apiUrl = apiUrls.development
 }
 
 module.exports = {
