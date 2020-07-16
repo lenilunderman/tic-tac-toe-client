@@ -11,7 +11,14 @@ const SignUpFailure = function () {
 }
 
 const SignInSuccess = function (response) {
+    // hide events
     $('.create-account').hide()
+    $('#sign-in').hide()
+
+    //show events
+    $('#change-password').show()
+
+    //other events and views
     $('.sign-in-message').text('The user logged in successfully!')
     console.log(response)
     store.user = response.user
@@ -23,11 +30,21 @@ const SignInFailure = function () {
     $('.sign-in-message').text('Your username or password is incorrect!')
 }
 
+const ChangePasswordSuccess = function () {
+    $('.change-password-message').text('You successfully changed the password.')
+}
+
+const ChangePasswordFailure = function () {
+    $('.change-password-message').text('Ops... there is an error, your old password does not match.')
+}
+
 module.exports = {
     SignUpSuccess,
     SignUpFailure,
     SignInSuccess,
-    SignInFailure
+    SignInFailure,
+    ChangePasswordSuccess,
+    ChangePasswordFailure
 }
 
 // user:

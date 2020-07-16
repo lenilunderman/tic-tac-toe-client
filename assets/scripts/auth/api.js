@@ -22,8 +22,23 @@ const SignIn = function (formData) {
     })
 }
 
+const ChangePassword = function (formData) {
+    console.log(formData)
+    return $.ajax({
+        headers: {
+            // Access the token on the `store.user` object
+            // This only works if we sign in first
+            Authorization: 'Bearer ' + store.user.token
+        },
+        url: config.apiUrl + '/change-password',
+        method: 'PATCH',
+        data: formData
+    })
+}
+
 
 module.exports = {
     signUp,
-    SignIn
+    SignIn,
+    ChangePassword
 }
