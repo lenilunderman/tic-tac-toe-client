@@ -36,9 +36,20 @@ const ChangePassword = function (formData) {
     })
 }
 
+const SignOut = function () {
+    return $.ajax({
+        headers: {
+            // Access the token and delete the token inside the store user.
+            Authorization: 'Bearer ' + store.user.token
+        },
+        url: config.apiUrl + '/sign-out',
+        method: 'DELETE',
+    })
+}
 
 module.exports = {
     signUp,
     SignIn,
-    ChangePassword
+    ChangePassword,
+    SignOut
 }
