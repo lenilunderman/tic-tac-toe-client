@@ -17,7 +17,7 @@
   <h1>Browser Template!</h1>
   <div class="container">
     <!--start ! create account for the user -->
-    <div class="create-account">
+    <div class="create-account unauthorized">
       <h4>Create an account:</h4>
       <form id="create-account">
         <div class="form-group">
@@ -38,6 +38,26 @@
       <div class="create-account-message"> message goes here</div>
     </div>
     <!-- end of create account for the user-->
+    <!-- start !sign in user account -->
+    <div class="sign-in unauthorized my-5">
+      <h4>Login to your account:</h4>
+      <form id="sign-in">
+        <div class="form-group">
+          <label for="email">Email address </label>
+          <input type="email" id="email" class="form-control" placeholder="email" name="credentials[email]">
+        </div>
+        <div class="form-group">
+          <label for="password">Password </label>
+          <input type="text" id="password" class="form-control" placeholder="password" name="credentials[password]">
+        </div>
+        <button type="submit" class="btn btn-info"> Login </button>
+      </form>
+      <div class="sign-in-message"> message goes here</div>
+    </div>
+    <!-- end of sign in user account-->
+
+
+
   </div>
 
 

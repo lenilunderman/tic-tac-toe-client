@@ -7,6 +7,7 @@ $(() => {
   // js event handlers
   // create a new account
   $('#create-account').on('submit', authEvents.onSignUp)
+  $('#sign-in').on('submit', authEvents.onSignIn)
 
 
 
