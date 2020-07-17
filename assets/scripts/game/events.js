@@ -10,7 +10,8 @@ let gamesVictories0 = 0
 
 const trackBoard = function (event) {
     // select the exactly cell that it was clicked
-    const cellSelected = $(this)
+    const cellSelected = $(event.target)
+    console.log(cellSelected)
     // check if that cell has a class with a especific name
     if (cellSelected.hasClass('X') || cellSelected.hasClass('O')) {
         return
@@ -39,8 +40,35 @@ const trackBoard = function (event) {
                 playerChoice = 'X'
             }
         }
+        //ajax
+        return $.ajax({
+            headers: {
+                // Access the token on the `store.user` object
+                // This only works if we sign in first
+                Authorization: 'Bearer ' + store.user.token
+            },
+            url: config.apiUrl + '/change-password',
+            method: 'PATCH',
+            data: {
+                "game": {
+                    "cell": {
+                        "index": 0, //curent index
+                        "value": playerChoice // cunrent value
+                    },
+                    "over": false // won ttrue
+                }
+            }
+        })
+            .then()
+            .catch()
+
+
     }
 }
+
+
+
+
 
 function checkWinner(containClass) {
     if ($('.s1').hasClass(containClass) && $('.s2').hasClass(containClass) && $('.s3').hasClass(containClass)) {
@@ -67,8 +95,8 @@ function checkWinner(containClass) {
 const onCreateGame = function (event) {
     const token = store.user.token
     apiGame.CreateGame(token)
-     .then(ui.createGameSuccess)
-     .catch(ui.createGameError)
+        .then(ui.createGameSuccess)
+        .catch(ui.createGameError)
 }
 
 
