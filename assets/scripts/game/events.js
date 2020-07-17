@@ -12,6 +12,7 @@ const trackBoard = function (event) {
     // select the exactly cell that it was clicked
     const cellSelected = $(event.target)
     console.log(cellSelected)
+    let indexCell = cellSelected.index()
     // check if that cell has a class with a especific name
     if (cellSelected.hasClass('X') || cellSelected.hasClass('O')) {
         return
@@ -47,27 +48,23 @@ const trackBoard = function (event) {
                 // This only works if we sign in first
                 Authorization: 'Bearer ' + store.user.token
             },
-            url: config.apiUrl + '/change-password',
+            url: 'https://tic-tac-toe-api-production.herokuapp.com/games/',  // something goes here too..
             method: 'PATCH',
             data: {
                 "game": {
                     "cell": {
-                        "index": 0, //curent index
+                        "index": indexCell, //curent index
                         "value": playerChoice // cunrent value
                     },
                     "over": false // won ttrue
                 }
             }
         })
-            .then()
-            .catch()
-
-
+            // ?? I need to access the information that is inside the create new game response.game._id
+            .then(ui.updateGameSuccess)
+            .catch(ui.updateGameFailure)
     }
 }
-
-
-
 
 
 function checkWinner(containClass) {
@@ -98,7 +95,6 @@ const onCreateGame = function (event) {
         .then(ui.createGameSuccess)
         .catch(ui.createGameError)
 }
-
 
 
 module.exports = {

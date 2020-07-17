@@ -17,6 +17,10 @@ const CreateGame = function (token) {
     })
 }
 
+
+
+
 module.exports = {
-    CreateGame
+    CreateGame,
+
 }
