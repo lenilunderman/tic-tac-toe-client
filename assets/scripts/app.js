@@ -26,6 +26,8 @@ $(() => {
 
 
   //? *** Game events *** ?//
+  //create a new game
+  $('#new-game').on('click', gameEvents.onCreateGame)
   $('.square').on('click', gameEvents.trackBoard)
 
 

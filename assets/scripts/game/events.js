@@ -1,8 +1,12 @@
+const api = require('../auth/api')
+const apiGame = require('../game/api')
+const store = require('../store')
+const getFormFields = require('../../../lib/get-form-fields')
+const ui = require('./ui')
+
 let playerChoice = 'X'
 let gamesVictoriesX = 0
 let gamesVictories0 = 0
-
-
 
 const trackBoard = function (event) {
     // select the exactly cell that it was clicked
@@ -60,7 +64,17 @@ function checkWinner(containClass) {
     }
 }
 
+const onCreateGame = function (event) {
+    const token = store.user.token
+    apiGame.CreateGame(token)
+     .then(ui.createGameSuccess)
+     .catch(ui.createGameError)
+}
+
+
+
 module.exports = {
     trackBoard,
-    checkWinner
+    checkWinner,
+    onCreateGame
 }
