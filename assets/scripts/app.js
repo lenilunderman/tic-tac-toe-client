@@ -2,6 +2,7 @@
 
 // all the requires goes here.
 const authEvents = require('./auth/events')
+const gameEvents = require('./game/events')
 
 $(() => {
   // js event handlers
@@ -22,6 +23,10 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   // create the sign out event, so the users will be able logged off from the website and the session will be destroyed.
   $('#sign-out').on('submit', authEvents.onSignOut)
+
+
+  //? *** Game events *** ?//
+  
 
 
 })

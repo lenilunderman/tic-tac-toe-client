@@ -87,8 +87,33 @@
   </div>
 
   <!-- Game board container -->
-  <div class="container">
-    ...the game goes here...
+  <div class="container game-board" id="game-board">
+    <div class="game-controls py-2">
+      <button type="submit" class="btn btn-primary" id="new-game">new game</button>
+      <button type="submit" class="btn btn-secondary" id="reset-game">reset game</button>
+      <div class="row py-3">
+        <div class="col-6" id="player-turn">Player turn:</div>
+        <div class="col-6" id="number-wins">Number of wins:</div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-4 square" name="cells[{}]"></div>
+      <div class="col-4 square" name="cells[{}]"></div>
+      <div class="col-4 square" name="cells[{}]"></div>
+    </div>
+    <div class="row">
+      <div class="col-4 square" name="cells[{}]"></div>
+      <div class="col-4 square" name="cells[{}]"></div>
+      <div class="col-4 square" name="cells[{}]"></div>
+    </div>
+    <div class="row">
+      <div class="col-4 square" name="cells[{}]"></div>
+      <div class="col-4 square" name="cells[{}]"></div>
+      <div class="col-4 square" name="cells[{}]"></div>
+    </div>
+
   </div>
   <!-- end game board container-->
 
