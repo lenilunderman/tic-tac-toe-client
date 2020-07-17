@@ -26,7 +26,7 @@ $(() => {
 
 
   //? *** Game events *** ?//
-  
+  $('.square').on('click', gameEvents.trackBoard)
 
 
 })
