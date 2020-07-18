@@ -8,7 +8,11 @@ const { css } = require('jquery')
 const createGameSuccess = function (response) {
     console.log(response)
     console.log(response.game.cells)
+    store.ID = response.game._id
+    console.log(store.ID)
 }
+
+
 
 const createGameError = function (error) {
     console.log(error)

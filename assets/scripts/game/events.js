@@ -48,7 +48,7 @@ const trackBoard = function (event) {
                 // This only works if we sign in first
                 Authorization: 'Bearer ' + store.user.token
             },
-            url: 'https://tic-tac-toe-api-production.herokuapp.com/games/',  // something goes here too..
+            url: 'https://tic-tac-toe-api-production.herokuapp.com/games/' + store.ID, // something goes here too..
             method: 'PATCH',
             data: {
                 "game": {
@@ -91,6 +91,7 @@ function checkWinner(containClass) {
 
 const onCreateGame = function (event) {
     const token = store.user.token
+    //const ID =
     apiGame.CreateGame(token)
         .then(ui.createGameSuccess)
         .catch(ui.createGameError)
