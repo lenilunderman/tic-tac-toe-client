@@ -10,6 +10,10 @@ $(() => {
   // hide events goes here ...
   $('#change-password').hide()
   $('#sign-out').hide()
+  $('#game-board').hide()
+  $('#game-controls').hide()
+
+
 
   // show events goes here...
 

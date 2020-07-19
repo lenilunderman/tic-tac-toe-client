@@ -86,33 +86,37 @@
     <!-- end change password -->
   </div>
 
+  <!-- test-->
+  <div class=" container game-controls py-2" id="game-controls">
+    <button type="submit" class="btn btn-primary" id="new-game">new game</button>
+    <button type="submit" class="btn btn-secondary" id="reset-game">reset game</button>
+    <div class="row py-3">
+      <div class="col-6" id="player-turn">Player turn:</div>
+      <div class="col-6" id="number-wins">Number of wins:</div>
+    </div>
+  </div>
+  <div id="winner-message" class="col-12 h2 mt-5 py-5 text-center"></div>
+
+
   <!-- Game board container -->
   <div class="container game-board" id="game-board">
-    <div class="game-controls py-2">
-      <button type="submit" class="btn btn-primary" id="new-game">new game</button>
-      <button type="submit" class="btn btn-secondary" id="reset-game">reset game</button>
-      <div class="row py-3">
-        <div class="col-6" id="player-turn">Player turn:</div>
-        <div class="col-6" id="number-wins">Number of wins:</div>
-      </div>
-    </div>
-    <div class="row">
+    <div class="row game-row">
       <div class="col-4 square s1 cell" id="0"></div>
       <div class="col-4 square s2 cell" id="1"></div>
       <div class="col-4 square s3 cell" id="2"></div>
     </div>
-    <div class="row">
+    <div class="row game-row">
       <div class="col-4 square s4 cell" id="3"></div>
       <div class="col-4 square s5 cell" id="4"></div>
       <div class="col-4 square s6 cell" id="5"></div>
     </div>
-    <div class="row">
+    <div class="row game-row">
       <div class="col-4 square s7 cell" id="6"></div>
       <div class="col-4 square s8 cell" id="7"></div>
       <div class="col-4 square s9 cell" id="8"></div>
     </div>
-
   </div>
+
   <!-- end game board container-->
 
 

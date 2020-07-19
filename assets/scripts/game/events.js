@@ -22,9 +22,9 @@ const trackBoard = function (event) {
             $('#player-turn').text('Player O Turn')
             // check if player won the game
             if (checkWinner('X')) {
-                $('#player-turn').text('Congratulation Player: ' + playerChoice + ' you won the game!')
-                gamesVictoriesX++
-                console.log(gamesVictoriesX)
+                $('#winner-message').text('Congratulation Player: ' + playerChoice + ' you won the game!')
+                $('#winner-message').show()
+                ui.createNewGame()
             }
             else {
                 playerChoice = 'O'
@@ -33,9 +33,10 @@ const trackBoard = function (event) {
         else {
             cellSelected.addClass('O')
             if (checkWinner('O')) {
-                $('#player-turn').text('Congratulation Player: ' + playerChoice + ' you won the game!')
-                gamesVictories0++
-                console.log(gamesVictories0)
+                $('#winner-message').text('Congratulation Player: ' + playerChoice + ' you won the game!')
+                $('#winner-message').show()
+                ui.createNewGame()
+
             } else {
                 $('#player-turn').text('Player X Turn')
                 playerChoice = 'X'
@@ -91,6 +92,12 @@ function checkWinner(containClass) {
 
 const onCreateGame = function (event) {
     const token = store.user.token
+    $('#game-board').show()
+    $('#winner-message').hide()
+
+    ui.showBoard()
+
+
     //const ID =
     apiGame.CreateGame(token)
         .then(ui.createGameSuccess)

@@ -4,15 +4,15 @@ createGameError
 'use strict'
 const store = require('../store')
 const { css } = require('jquery')
+const { trackBoard } = require('./events')
 
 const createGameSuccess = function (response) {
     console.log(response)
     console.log(response.game.cells)
     store.ID = response.game._id
     console.log(store.ID)
+    $('game-board').show()
 }
-
-
 
 const createGameError = function (error) {
     console.log(error)
@@ -26,21 +26,31 @@ const updateGameFailure = function (error) {
     console.log(error)
 }
 
+const winnerGameSuccess = function () {
+    //$('.game-row').hide()
+    //const newGame = trackBoard()
+}
+
+const createNewGame = function () {
+    $('.cell').removeClass("X")
+    $('.cell').removeClass("O")
+    $('#game-board').hide()
+
+}
+
+const showBoard = function () {
+    $('#game-board').show()
+    
+
+}
 
 
 module.exports = {
     createGameSuccess,
     createGameError,
     updateGameSuccess,
-    updateGameFailure
+    updateGameFailure,
+    winnerGameSuccess,
+    createNewGame,
+    showBoard
 }
-
-// {"game":
-//     {"cells":["","","","","","","","",""],
-//     "over":false,"_id":"5f11e9ca68a08d001777c90a",
-//     "owner":"5f105aa9ab4d930017cdbbeb",
-//     "createdAt":"2020-07-17T18:11:22.176Z",
-//     "updatedAt":"2020-07-17T18:11:22.176Z",
-// "__v":0}}
-
-// response.game._id

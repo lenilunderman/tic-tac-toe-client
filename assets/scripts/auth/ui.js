@@ -19,9 +19,10 @@ const SignInSuccess = function (response) {
     //show events
     $('#change-password').show()
     $('#sign-out').show()
-
     //other events and views
     $('.sign-in-message').text('Welcome to the website! Are you there to play the amazing tic-tac-toe?')
+    $('#game-controls').show()
+
     // storage the user inside the store variable, in which you can access the token.
     store.user = response.user
 }
