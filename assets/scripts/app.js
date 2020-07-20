@@ -2,6 +2,7 @@
 
 // all the requires goes here.
 const authEvents = require('./auth/events')
+const gameEvents = require('./game/events')
 
 $(() => {
   // js event handlers
@@ -9,6 +10,14 @@ $(() => {
   // hide events goes here ...
   $('#change-password').hide()
   $('#sign-out').hide()
+  $('#game-board').show()
+  $('#game-controls').hide()
+  $('.view-header-image').hide()
+  $('#winner-message').hide()
+  $('.change-password-container').hide()
+  $('.sign-in-message').hide()
+
+
 
   // show events goes here...
 
@@ -19,9 +28,17 @@ $(() => {
   // create the sign in option, so users can log into the website and access the game and see more views.
   $('#sign-in').on('submit', authEvents.onSignIn)
   // create the change password, the user have to be authenticated to be able to see this view to change his own password.
+  $('#displayChangePassword').on('click', authEvents.displayChangePassword)
+  //displayChangePassword
   $('#change-password').on('submit', authEvents.onChangePassword)
   // create the sign out event, so the users will be able logged off from the website and the session will be destroyed.
-  $('#sign-out').on('submit', authEvents.onSignOut)
+  $('#sign-out').on('click', authEvents.onSignOut)
+
+
+  //? *** Game events *** ?//
+  //create a new game
+  $('#new-game').on('click', gameEvents.onCreateGame)
+  $('.square').on('click', gameEvents.trackBoard)
 
 
 })
