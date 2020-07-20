@@ -8,7 +8,7 @@ const onSignUp = function (event) {
     event.preventDefault()
     const data = event.target
     const formData = getFormFields(data)
-    console.log(formData)
+    //console.log(formData)
     // check the API to sign Up
     api.signUp(formData)
         .then(ui.SignUpSuccess)
@@ -25,11 +25,11 @@ const onSignIn = function (event) {
         .catch(ui.SignInFailure)
 }
 
-const displayChangePassword = function (event){
+const displayChangePassword = function (event) {
     $('.change-password-container').show()
-    
-}
+    $('#game-board').hide()
 
+}
 
 const onChangePassword = function (event) {
     event.preventDefault()
@@ -47,7 +47,6 @@ const onSignOut = function (event) {
         .then(ui.signOutSuccess)
         .catch(ui.signOutFailure)
 }
-
 
 module.exports = {
     onSignUp,

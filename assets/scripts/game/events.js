@@ -5,8 +5,8 @@ const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./ui')
 
 let playerChoice = 'X'
-let gamesVictoriesX = 0
-let gamesVictories0 = 0
+let gamesVictories = 0
+
 
 const trackBoard = function (event) {
     // select the exactly cell that it was clicked
@@ -22,8 +22,10 @@ const trackBoard = function (event) {
             $('#player-turn').text('Player O Turn')
             // check if player won the game
             if (checkWinner('X')) {
+                ++gamesVictories
                 $('#winner-message').text('Congratulation Player: ' + playerChoice + ' you won the game!')
                 $('#winner-message').show()
+                $('#number-wins').html('<b> Number of wins: </b>' + gamesVictories)
                 ui.createNewGame()
             }
             else {
@@ -33,8 +35,10 @@ const trackBoard = function (event) {
         else {
             cellSelected.addClass('O')
             if (checkWinner('O')) {
+                gamesVictories++
                 $('#winner-message').text('Congratulation Player: ' + playerChoice + ' you won the game!')
                 $('#winner-message').show()
+                $('#number-wins').html('<b> Number of wins: </b>' + gamesVictories)
                 ui.createNewGame()
 
             } else {
@@ -92,21 +96,29 @@ function checkWinner(containClass) {
 
 const onCreateGame = function (event) {
     const token = store.user.token
+    $('.square').removeClass('X').removeClass('O')
+    $('.change-password-container').hide()
     $('#game-board').show()
     $('#winner-message').hide()
 
     ui.showBoard()
-
-
     //const ID =
     apiGame.CreateGame(token)
         .then(ui.createGameSuccess)
         .catch(ui.createGameError)
 }
 
+const onResetGame = function (event) {
+    $('.square').removeClass('X').removeClass('O')
+    gamesVictories = 0
+    $('#number-wins').html('<b> Number of wins: </b>' + gamesVictories)
+    $('#winner-message').hide()
+}
+
 
 module.exports = {
     trackBoard,
     checkWinner,
-    onCreateGame
+    onCreateGame,
+    onResetGame
 }

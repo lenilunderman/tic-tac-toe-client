@@ -25,7 +25,7 @@ body{
     .X{
         font-size: 30px;
         color: red;
-        background-image: url('closeICON.png');
+        background-image: url('/public/closeICON.png');
         background-repeat: no-repeat;
         background-position: center;
     }
@@ -33,7 +33,7 @@ body{
     .O{
         font-size: 30px;
         color: black;
-        background-image: url('circleICON.png');
+        background-image: url('/public/circleICON.png');
         background-repeat: no-repeat;
         width: 70%;
         background-position: center;
@@ -72,7 +72,7 @@ body{
 }
 
 .view-header-image{
-    background: url('./image-game.jpg');
+    background: url('/public/image-game.jpg');
     min-height: 30vh;
     background-position: center;
     background-repeat: none ;
@@ -93,4 +93,3 @@ li.nav-item > a:hover{
     background-color: #f0e0f530;
     text-decoration: underline;
 }
-

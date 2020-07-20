@@ -10,7 +10,7 @@ $(() => {
   // hide events goes here ...
   $('#change-password').hide()
   $('#sign-out').hide()
-  $('#game-board').show()
+  $('#game-board').hide()
   $('#game-controls').hide()
   $('.view-header-image').hide()
   $('#winner-message').hide()
@@ -19,10 +19,7 @@ $(() => {
 
 
 
-  // show events goes here...
-
   // other events goes here ...
-
   // create a new account, so that the user will be able to access the game.
   $('#create-account').on('submit', authEvents.onSignUp)
   // create the sign in option, so users can log into the website and access the game and see more views.
@@ -39,6 +36,7 @@ $(() => {
   //create a new game
   $('#new-game').on('click', gameEvents.onCreateGame)
   $('.square').on('click', gameEvents.trackBoard)
-
+  // Reset the game to a new Game.
+  $('#reset-game').on('click', gameEvents.onResetGame)
 
 })
