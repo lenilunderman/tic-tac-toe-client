@@ -13,6 +13,7 @@ const trackBoard = function (event) {
     const cellSelected = $(event.target)
     console.log(cellSelected)
     let indexCell = cellSelected.index()
+
     // check if that cell has a class with a especific name
     if (cellSelected.hasClass('X') || cellSelected.hasClass('O')) {
         return
