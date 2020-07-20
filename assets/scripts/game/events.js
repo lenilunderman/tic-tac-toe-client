@@ -103,7 +103,6 @@ const isTieGame = function (event) {
         const tieCount = ++counterSquare
         console.log(tieCount)
         if (tieCount === 9) {
-            alert('test this')
             $('#winner-message').text('It is a tie Game!').show()
             counterSquare = 0
         }
