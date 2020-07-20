@@ -3,6 +3,7 @@ const apiGame = require('../game/api')
 const store = require('../store')
 const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./ui')
+let counterSquare = 0
 
 let playerChoice = 'X'
 let gamesVictories = 0
@@ -95,6 +96,21 @@ function checkWinner(containClass) {
     }
 }
 
+// check for a draw game :-)
+const isTieGame = function (event) {
+    $('.cell').on('click', function () {
+        //counterSquare++
+        const tieCount = ++counterSquare
+        console.log(tieCount)
+        if (tieCount === 9) {
+            alert('test this')
+            $('#winner-message').text('It is a tie Game!').show()
+            counterSquare = 0
+        }
+    })
+}
+isTieGame()
+
 const onCreateGame = function (event) {
     const token = store.user.token
     $('.square').removeClass('X').removeClass('O')
@@ -103,7 +119,6 @@ const onCreateGame = function (event) {
     $('#winner-message').hide()
 
     ui.showBoard()
-    //const ID =
     apiGame.CreateGame(token)
         .then(ui.createGameSuccess)
         .catch(ui.createGameError)
@@ -121,5 +136,6 @@ module.exports = {
     trackBoard,
     checkWinner,
     onCreateGame,
-    onResetGame
+    onResetGame,
+    isTieGame
 }
