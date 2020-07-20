@@ -1,30 +1,42 @@
 @import '~bootstrap/scss/bootstrap';
 
+body{
+    background-color: rgb(148, 189, 189);
+    background: #CDC5D9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #BBC4DA, #CDC5D9, #D6AFBE);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 .game-board{
-    background-color: rgb(192, 229, 241);
+
+    margin-top: 100px;
+    max-width: 600px;
+    background-color: red;
 
     .square{
         display: flex;
-        height: 120px;
+        height: 100px;
         background-color: white;
         border: 5px solid rgb(192, 229, 241);
         justify-content: center;
         align-items: center;
+        cursor: pointer;
     }
 
     .X{
         font-size: 30px;
         color: red;
-        background-image: url('theClose.png');
+        background-image: url('closeICON.png');
         background-repeat: no-repeat;
+        background-position: center;
     }
 
     .O{
         font-size: 30px;
         color: black;
-        background-image: url('dot32.png');
+        background-image: url('circleICON.png');
         background-repeat: no-repeat;
         width: 70%;
+        background-position: center;
     }
 }
 
