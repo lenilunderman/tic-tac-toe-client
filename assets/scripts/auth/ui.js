@@ -13,14 +13,15 @@ const SignUpFailure = function () {
 
 const SignInSuccess = function (response) {
     // hide events
+    $('.master-image').hide()
     $('.create-account').hide()
     $('#sign-in').hide()
 
     //show events
+    $('.view-header-image').show()
     $('#change-password').show()
     $('#sign-out').show()
     //other events and views
-    $('.sign-in-message').text('Welcome to the website! Are you there to play the amazing tic-tac-toe?')
     $('#game-controls').show()
 
     // storage the user inside the store variable, in which you can access the token.
@@ -28,7 +29,8 @@ const SignInSuccess = function (response) {
 }
 
 const SignInFailure = function () {
-    $('.sign-in-message').text('Your username or password is incorrect!')
+    $('.sign-in-message-error').text('Your username or password is incorrect!')
+    $('.sign-in-message-error').addClass('alert alert-info').show()
 }
 
 const ChangePasswordSuccess = function () {
@@ -45,13 +47,20 @@ const signOutSuccess = function () {
     $('#sign-out').hide()
     $('#change-password').hide()
     $('.sign-in-message').hide()
+    $('.view-header-image').hide()
+    $('.game-board').hide()
+    $('.sign-in-message-error').hide()
+    $('.change-password-container').hide()
+
 
     // show events
+    $('.master-image').show()
     $('.create-account').show()
     $('#sign-in').show()
 
     //other events
     $('#sign-in :input').val('')
+    //destroy the game that is current on...
 }
 
 const signOutFailure = function () {
