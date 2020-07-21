@@ -3,16 +3,18 @@ const apiGame = require('../game/api')
 const store = require('../store')
 const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./ui')
-let counterSquare = 0
 
+// Used to check if the is a tie game.
+let counterSquare = 0
 let playerChoice = 'X'
+// Used to storage the number of victories in the game.
 let gamesVictories = 0
 
 
 const trackBoard = function (event) {
-    // select the exactly cell that it was clicked
+    // Select the exactly cell that it was clicked.
     const cellSelected = $(event.target)
-    console.log(cellSelected)
+    // console.log(cellSelected) Displays div selected on the game.
     let indexCell = cellSelected.index()
 
     // check if that cell has a class with a especific name
@@ -21,16 +23,17 @@ const trackBoard = function (event) {
     } else {
         if (playerChoice === 'X') {
             cellSelected.addClass('X')
-            $('#player-turn').text('Player O Turn')
-            // check if player won the game
+            $('#player-turn').html('<b>Player "O" Turn </b> ')
+            // Check if Player X won the game.
             if (checkWinner('X')) {
                 ++gamesVictories
-                $('#winner-message').text('Congratulation Player: ' + playerChoice + ' you won the game!')
+                $('#winner-message').text('Congratulation Player: ' + playerChoice + '. You won the game!')
                 $('#winner-message').show()
-                $('#number-wins').html('<b> Number of wins: </b>' + gamesVictories)
+                $('#number-wins').html('<b> Number of wins: ' + gamesVictories + '</b>')
                 ui.createNewGame()
             }
             else {
+                // Switch player in case X does win the game.
                 playerChoice = 'O'
             }
         }
@@ -38,21 +41,21 @@ const trackBoard = function (event) {
             cellSelected.addClass('O')
             if (checkWinner('O')) {
                 gamesVictories++
-                $('#winner-message').text('Congratulation Player: ' + playerChoice + ' you won the game!')
+                $('#winner-message').text('Congratulation Player: ' + playerChoice + '. You won the game!')
                 $('#winner-message').show()
-                $('#number-wins').html('<b> Number of wins: </b>' + gamesVictories)
+                $('#number-wins').html('<b> Number of wins: ' + gamesVictories + '</b>')
                 ui.createNewGame()
 
             } else {
-                $('#player-turn').text('Player X Turn')
+                $('#player-turn').html('<b>Player "X" Turn </b> ')
+                // Switch player in case O does win the game.
                 playerChoice = 'X'
             }
         }
         //ajax
         return $.ajax({
             headers: {
-                // Access the token on the `store.user` object
-                // This only works if we sign in first
+                // Access the token on the `store.user` object. This only works if we sign in first.
                 Authorization: 'Bearer ' + store.user.token
             },
             url: 'https://tic-tac-toe-api-production.herokuapp.com/games/' + store.ID, // something goes here too..
@@ -63,18 +66,17 @@ const trackBoard = function (event) {
                         "index": indexCell, //curent index
                         "value": playerChoice // cunrent value
                     },
-                    "over": false // won ttrue
+                    "over": false // won true
                 }
             }
         })
-            // ?? I need to access the information that is inside the create new game response.game._id
             .then(ui.updateGameSuccess)
             .catch(ui.updateGameFailure)
     }
 }
 
-
 function checkWinner(containClass) {
+    // Check che combinations for the winner...
     if ($('.s1').hasClass(containClass) && $('.s2').hasClass(containClass) && $('.s3').hasClass(containClass)) {
         return true
     } else if ($('.s4').hasClass(containClass) && $('.s5').hasClass(containClass) && $('.s6').hasClass(containClass)) {
@@ -96,14 +98,15 @@ function checkWinner(containClass) {
     }
 }
 
-// check for a draw game :-)
+// Check if all the board is filled and if there is still no winner, giving a tie game.
 const isTieGame = function (event) {
     $('.cell').on('click', function () {
-        //counterSquare++
+        // Start the counter for the number of squares.
         const tieCount = ++counterSquare
-        console.log(tieCount)
+        // console.log(tieCount) Counts how many squares were clicked.
         if (tieCount === 9) {
             $('#winner-message').text('It is a tie Game!').show()
+            // Set to zero in case, there is a tie, so the action can be taken again in case the player decides to play a new game.
             counterSquare = 0
         }
     })
@@ -125,11 +128,11 @@ const onCreateGame = function (event) {
 
 const onResetGame = function (event) {
     $('.square').removeClass('X').removeClass('O')
+    // Set the numbers of victories to zero in case, the user decides to reset.
     gamesVictories = 0
-    $('#number-wins').html('<b> Number of wins: </b>' + gamesVictories)
+    $('#number-wins').html('<b> Number of wins: ' + gamesVictories + '</b>')
     $('#winner-message').hide()
 }
-
 
 module.exports = {
     trackBoard,
