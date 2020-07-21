@@ -27,4 +27,5 @@ The user will have to create an account to get access to the game, once the user
 For the future if all goes well, I will add a dark-mode theme for the game, and give the user options to choose an icon selector for the game.
 
 **Initial sketch**
+
 ![enter image description here](https://i.imgur.com/PaqFoK0.png)
