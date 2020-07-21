@@ -50,7 +50,7 @@ const signOutSuccess = function () {
     $('.game-board').hide()
     $('.sign-in-message-error').hide()
     $('.change-password-container').hide()
-
+    $('#winner-message').hide()
 
     // show events
     $('.master-image').show()

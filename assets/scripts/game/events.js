@@ -10,7 +10,6 @@ let playerChoice = 'X'
 // Used to storage the number of victories in the game.
 let gamesVictories = 0
 
-
 const trackBoard = function (event) {
     // Select the exactly cell that it was clicked.
     const cellSelected = $(event.target)
@@ -27,11 +26,13 @@ const trackBoard = function (event) {
             // Check if Player X won the game.
             if (checkWinner('X')) {
                 ++gamesVictories
-                $('#winner-message').text('Congratulation Player: ' + playerChoice + '. You won the game!')
+                $('#winner-message').html('<div> Congratulations <img src="./public/closeICON.png" class="py-4 px-4"> <br> You won the game </br> <img src="./public/trophy.png" class="py-4 px-4 mt-4"> </div>')
+
                 $('#winner-message').show()
                 $('#number-wins').html('<b> Number of wins: ' + gamesVictories + '</b>')
                 ui.createNewGame()
             }
+
             else {
                 // Switch player in case X does win the game.
                 playerChoice = 'O'
@@ -41,7 +42,8 @@ const trackBoard = function (event) {
             cellSelected.addClass('O')
             if (checkWinner('O')) {
                 gamesVictories++
-                $('#winner-message').text('Congratulation Player: ' + playerChoice + '. You won the game!')
+                $('#winner-message').html('<div> Congratulations <img src="./public/circleICON.png" class="py-4 px-4"> <br> You won the game </br> <img src="./public/trophy.png" class="py-4 px-4 mt-4"> </div>')
+
                 $('#winner-message').show()
                 $('#number-wins').html('<b> Number of wins: ' + gamesVictories + '</b>')
                 ui.createNewGame()
@@ -52,7 +54,7 @@ const trackBoard = function (event) {
                 playerChoice = 'X'
             }
         }
-        //ajax
+        // Ajax
         return $.ajax({
             headers: {
                 // Access the token on the `store.user` object. This only works if we sign in first.
@@ -103,9 +105,9 @@ const isTieGame = function (event) {
     $('.cell').on('click', function () {
         // Start the counter for the number of squares.
         const tieCount = ++counterSquare
-        // console.log(tieCount) Counts how many squares were clicked.
+        // console.log(tieCount)  Counts how many squares were clicked.
         if (tieCount === 9) {
-            $('#winner-message').text('It is a tie Game!').show()
+            $('#winner-message').html('<div> It is a tie game! <br> <img src="./public/score.png" class="py-4 px-4 mt-4"> </div>').show()
             // Set to zero in case, there is a tie, so the action can be taken again in case the player decides to play a new game.
             counterSquare = 0
         }
@@ -119,6 +121,7 @@ const onCreateGame = function (event) {
     $('.change-password-container').hide()
     $('#game-board').show()
     $('#winner-message').hide()
+    counterSquare = 0
 
     ui.showBoard()
     apiGame.CreateGame(token)
@@ -133,6 +136,8 @@ const onResetGame = function (event) {
     $('#number-wins').html('<b> Number of wins: ' + gamesVictories + '</b>')
     $('#winner-message').hide()
 }
+
+// const token = store.user.token  maybe use to check if the user is the same to set the number of victories depending on the user??!!
 
 module.exports = {
     trackBoard,
