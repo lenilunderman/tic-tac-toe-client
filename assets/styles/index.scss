@@ -10,7 +10,6 @@ body{
 
     margin-top: 100px;
     max-width: 600px;
-    background-color: red;
 
     .square{
         display: flex;
@@ -24,7 +23,6 @@ body{
 
     .X{
         font-size: 30px;
-        color: red;
         background-image: url('public/closeICON.png');
         background-repeat: no-repeat;
         background-position: center;
@@ -47,11 +45,13 @@ body{
     background: linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     min-height: 100vh;
 }
+
 .btn-create-account, .btn-login-account{
     background-color: #55757a;
     border-color: none;
     width: 100%;
 }
+
 .btn-new-game{
     border-color: none;
     width: 200px;
@@ -67,6 +67,7 @@ body{
     font-weight: 600;
     text-align: center;
 }
+
 .col-size{
     min-height: 480px;
 }
@@ -78,6 +79,7 @@ body{
     background-repeat: none ;
     background-size: cover;
 }
+
 #logo{
     width: 40px;
     height: 40px;

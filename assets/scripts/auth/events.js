@@ -8,8 +8,8 @@ const onSignUp = function (event) {
     event.preventDefault()
     const data = event.target
     const formData = getFormFields(data)
-    //console.log(formData)
-    // check the API to sign Up
+
+    // Check the information and send the data to the API.
     api.signUp(formData)
         .then(ui.SignUpSuccess)
         .catch(ui.SignUpFailure)
@@ -19,7 +19,7 @@ const onSignIn = function (event) {
     event.preventDefault()
     const data = event.target
     const formData = getFormFields(data)
-    // send that data to the API
+    // Send the information to the API to sign in the user.
     api.SignIn(formData)
         .then(ui.SignInSuccess)
         .catch(ui.SignInFailure)
@@ -28,14 +28,13 @@ const onSignIn = function (event) {
 const displayChangePassword = function (event) {
     $('.change-password-container').show()
     $('#game-board').hide()
-
 }
 
 const onChangePassword = function (event) {
     event.preventDefault()
     const form = event.target
     const formData = getFormFields(form)
-    // send the information to the API to change password.
+    // Send the information to the API to change password.
     api.ChangePassword(formData)
         .then(ui.ChangePasswordSuccess)
         .catch(ui.ChangePasswordFailure)

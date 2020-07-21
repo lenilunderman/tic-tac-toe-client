@@ -23,7 +23,6 @@ const SignInSuccess = function (response) {
     $('#sign-out').show()
     //other events and views
     $('#game-controls').show()
-
     // storage the user inside the store variable, in which you can access the token.
     store.user = response.user
 }
@@ -59,14 +58,13 @@ const signOutSuccess = function () {
     $('#sign-in').show()
 
     //other events
+    // Clear the fields of the input sign in
     $('#sign-in :input').val('')
-    //destroy the game that is current on...
 }
 
 const signOutFailure = function () {
     $('.sign-out-message').text('You need to be logged in, to be able to sign out of the website.')
 }
-
 
 module.exports = {
     SignUpSuccess,
@@ -78,11 +76,3 @@ module.exports = {
     signOutSuccess,
     signOutFailure
 }
-
-// user:
-// createdAt: "2020-07-16T13:48:25.833Z"
-// email: "leni@gmail.com"
-// token: "e7b94c9fa14b2939a1e10e14458b1ba1"
-// updatedAt: "2020-07-16T13:58:14.577Z"
-// __v: 0
-// _id: "5f105aa9ab4d930017cdbbeb"

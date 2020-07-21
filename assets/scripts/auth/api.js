@@ -26,8 +26,7 @@ const ChangePassword = function (formData) {
 
     return $.ajax({
         headers: {
-            // Access the token on the `store.user` object
-            // This only works if we sign in first
+            // Access the token on the `store.user` object. This only works if we sign in first
             Authorization: 'Bearer ' + store.user.token
         },
         url: config.apiUrl + '/change-password',
