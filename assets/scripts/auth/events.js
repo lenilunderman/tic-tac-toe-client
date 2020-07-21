@@ -28,6 +28,7 @@ const onSignIn = function (event) {
 const displayChangePassword = function (event) {
     $('.change-password-container').show()
     $('#game-board').hide()
+    $('#winner-message').hide()
 }
 
 const onChangePassword = function (event) {
@@ -35,6 +36,7 @@ const onChangePassword = function (event) {
     const form = event.target
     const formData = getFormFields(form)
     // Send the information to the API to change password.
+
     api.ChangePassword(formData)
         .then(ui.ChangePasswordSuccess)
         .catch(ui.ChangePasswordFailure)
