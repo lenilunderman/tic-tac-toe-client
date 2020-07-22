@@ -11,6 +11,9 @@
 - Auth & Game API
 - Bootstrap
 
+**Important Links**
+https://lenilunderman.github.io/tic-tac-toe-client/
+
 **User Stories**
 
 As a user, I want to create an account and be able to login in
