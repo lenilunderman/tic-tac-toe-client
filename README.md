@@ -12,6 +12,7 @@
 - Bootstrap
 
 **Important Links**
+
 [Tic Tac Toe Game](https://lenilunderman.github.io/tic-tac-toe-client/)
 
 **User Stories**
