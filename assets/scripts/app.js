@@ -17,8 +17,6 @@ $(() => {
   $('.change-password-container').hide()
   $('.sign-in-message').hide()
 
-
-
   // other events goes here ...
   // create a new account, so that the user will be able to access the game.
   $('#create-account').on('submit', authEvents.onSignUp)
@@ -30,7 +28,7 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   // create the sign out event, so the users will be able logged off from the website and the session will be destroyed.
   $('#sign-out').on('click', authEvents.onSignOut)
-
+  $('#stats').on('click',authEvents.stats)
 
   //? *** Game events *** ?//
   //create a new game
@@ -38,5 +36,6 @@ $(() => {
   $('.square').on('click', gameEvents.trackBoard)
   // Reset the game to a new Game.
   $('#reset-game').on('click', gameEvents.onResetGame)
+
 
 })

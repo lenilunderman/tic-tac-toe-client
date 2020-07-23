@@ -49,10 +49,17 @@ const onSignOut = function (event) {
         .catch(ui.signOutFailure)
 }
 
+const stats = function (event) {
+    api.getStats()
+        .then(ui.getStatsSuccess)
+        .catch(ui.getStatsFail)
+}
+
 module.exports = {
     onSignUp,
     onSignIn,
     onChangePassword,
     displayChangePassword,
-    onSignOut
+    onSignOut,
+    stats
 }

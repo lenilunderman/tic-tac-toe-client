@@ -51,6 +51,7 @@ const signOutSuccess = function () {
     $('.sign-in-message-error').hide()
     $('.change-password-container').hide()
     $('#winner-message').hide()
+    $('#number-wins').hide()
 
     // show events
     $('.master-image').show()
@@ -66,6 +67,16 @@ const signOutFailure = function () {
     $('.sign-out-message').text('You need to be logged in, to be able to sign out of the website.')
 }
 
+const getStatsSuccess = function (response) {
+    if (response.games.length === 0) {
+      $('#number-wins').text('You haven\'t played any games yet!')
+    } else {
+      $('#number-wins').text('Total number of games played: ' + response.games.length).fadeIn(2000)
+    }
+}
+
+
+
 module.exports = {
     SignUpSuccess,
     SignUpFailure,
@@ -74,5 +85,6 @@ module.exports = {
     ChangePasswordSuccess,
     ChangePasswordFailure,
     signOutSuccess,
-    signOutFailure
+    signOutFailure,
+    getStatsSuccess
 }
