@@ -30,6 +30,8 @@ const trackBoard = function (event) {
 
                 $('#winner-message').show()
                 $('#number-wins').html('<b> Number of wins: ' + gamesVictories + '</b>')
+                $('#player-turn').html('')
+                playerChoice = 'X'
                 ui.createNewGame()
             }
 
@@ -46,6 +48,8 @@ const trackBoard = function (event) {
 
                 $('#winner-message').show()
                 $('#number-wins').html('<b> Number of wins: ' + gamesVictories + '</b>')
+                $('#player-turn').html('')
+                playerChoice = 'X'
                 ui.createNewGame()
 
             } else {
@@ -121,6 +125,7 @@ const onCreateGame = function (event) {
     $('.change-password-container').hide()
     $('#game-board').show()
     $('#winner-message').hide()
+    $('#player-turn').html('<b>Player "X" Turn </b> ')
     counterSquare = 0
 
     ui.showBoard()

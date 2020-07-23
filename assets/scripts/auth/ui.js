@@ -71,11 +71,9 @@ const getStatsSuccess = function (response) {
     if (response.games.length === 0) {
       $('#number-wins').text('You haven\'t played any games yet!')
     } else {
-      $('#number-wins').text('Total number of games played: ' + response.games.length).fadeIn(2000)
+      $('#number-wins').html('<b>Total number of games played: ' + response.games.length + '</b>').fadeIn(2000)
     }
 }
-
-
 
 module.exports = {
     SignUpSuccess,
